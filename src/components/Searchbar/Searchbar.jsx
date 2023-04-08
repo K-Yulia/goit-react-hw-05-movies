@@ -5,30 +5,30 @@ import { GoSearch } from 'react-icons/go';
 import { Header, SearchForm, SearchFormBtn, SearchFormInput} from './Searchbar.styled'
 
 
-export const Searchbar = ({onSubmit}) => {
-  const [inputValue, setInputValue] = useState('');
+const Searchbar = ({onSubmit}) => {
+  const [query, setQuery] = useState('');
   
 const handleInput = event => {
-   setInputValue(event.target.value.toLowerCase());
+   setQuery(event.target.value.toLowerCase());
   };
 
   const handleFormSUbmit = event => {
     event.preventDefault();
 
-    if (inputValue.trim() === '') {
+    if (query.trim() === '') {
       toast.error('Please, enter some text', {
         position: 'top-center',
         duration: 3000,
           });
       return;
     }
-    onSubmit(inputValue);
-    setInputValue('');
+    onSubmit(query);
+    setQuery('');
   };
  
     return (
       <Header className="Searchbar">
-        <SearchForm className="SearchForm" onSubmit={handleFormSUbmit}>
+        <SearchForm onSubmit={handleFormSUbmit}>
           <SearchFormBtn type="submit" className="SearchFormButton">
             <GoSearch style={{ width: 20, height: 20 }} />
           </SearchFormBtn>
@@ -36,8 +36,8 @@ const handleInput = event => {
             className="SearchForm-input"
             type="text"
             autoComplete="off"
-            name="inputValue"
-            value={inputValue}
+            name="query"
+            value={query}
             autoFocus
             onChange={handleInput}
             placeholder="Search movies"
@@ -51,3 +51,5 @@ const handleInput = event => {
 Searchbar.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
+
+export default Searchbar;
