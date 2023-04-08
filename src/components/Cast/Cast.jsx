@@ -36,7 +36,11 @@ const Cast = () => {
                 alt="{item.name}"
               />
               <CastTitle>{item.name}</CastTitle>
-              <CastTitle>Character: {item.character}</CastTitle>
+               {item.character && (
+        <>
+          <CastTitle>Character: {item.character}</CastTitle>
+        </>
+      )}
             </CastItem>
           ))
         )}
