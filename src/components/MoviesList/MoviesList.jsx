@@ -1,6 +1,4 @@
-// import { NavLink} from 'react-router-dom';
-// import PropTypes from 'prop-types';
-
+import PropTypes from 'prop-types';
 import { Item, LinkStyled } from './MoviesList.styled';
 
 const MoviesList = ({ movies, state }) => {
@@ -21,4 +19,9 @@ const MoviesList = ({ movies, state }) => {
     </div>
   );
 };
+
+MoviesList.propTypes = {
+  movies: PropTypes.array.isRequired,
+};
+
 export default MoviesList;
