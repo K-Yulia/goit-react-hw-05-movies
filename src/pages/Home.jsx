@@ -8,10 +8,7 @@ const Home = () => {
  const [movies, setMovies] = useState([]);
 
    const location = useLocation();
-  // useEffect(() => {
-  //       getTrendingMovies().then(data => setMovies(data));
-  // }, []);
-  useEffect(() => {
+    useEffect(() => {
     async function getMovies() {
       try {
         const data = await fetchTrendingMovies();

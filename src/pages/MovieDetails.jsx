@@ -5,7 +5,6 @@ import MovieInfo from 'components/MovieInfo/MovieInfo';
 import { fetchMovieDetails } from "Services/movies-api";
 import { GoBackBtn, Title, List} from '../components/MovieInfo/MovieInfo.styled';
 
-
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
