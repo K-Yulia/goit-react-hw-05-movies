@@ -47,4 +47,5 @@ export const List = styled.ul`
   justify-content: center;
   gap: 20px;
   font-size: 20px;
+  margin-bottom: 15px;
 `;

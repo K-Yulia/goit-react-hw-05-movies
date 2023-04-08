@@ -1,4 +1,5 @@
 import avatar from '..//..//img/No-Image.jpg';
+import { PropTypes } from 'prop-types';
 import { MovieWrap, MovieImage, Info,TitleInfo, MovieTitle, Text } from './MovieInfo.styled';
 const MovieInfo = ({ movie: {
     title,
@@ -32,15 +33,25 @@ const MovieInfo = ({ movie: {
         <Text>
           User Score: {Math.round(vote_average * 10)}%
         </Text>
-        <TitleInfo>Overview</TitleInfo>
-        <Text>{overview}</Text>
-        <TitleInfo>Genres</TitleInfo>
-        <Text> 
-          {movieGenres}
-        </Text>
+        {overview && (
+        <>
+          <TitleInfo>Overview</TitleInfo>
+          <Text>{overview}</Text>
+        </>
+      )}
+      {movieGenres && (
+        <>
+          <TitleInfo>Genres</TitleInfo>
+          <Text>{movieGenres}</Text>
+        </>
+      )}         
       </Info>
     </MovieWrap>
   );
+}
+
+MovieInfo.propTypes = {
+  movie: PropTypes.object.isRequired,
 }
 
 export default MovieInfo;
